@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prince-Parajuli Portfolio</title>
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
+body {font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#0a192f,#112240); color:#f5f5f5; overflow-x:hidden;}
+a {text-decoration:none; color:inherit;}
+
+/* ---------- HEADER ---------- */
+.header {width:100%; padding:16px 8%; display:flex; justify-content:space-between; align-items:center; background:rgba(10,25,47,0.9); position:sticky; top:0; z-index:100;}
+.header .logo {font-family:'Orbitron',sans-serif; font-size:22px; font-weight:800; color:#0ef;}
+.navbar a {margin-left:20px; font-weight:500; transition:0.3s;}
+.navbar a:hover {color:#0ef; text-shadow:0 0 8px #0ef;}
+
+/* ---------- HOME SECTION ---------- */
+.home {display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:60px; padding:80px 8%;}
+.home-img-container {position:relative; width:260px; height:300px; display:flex; align-items:center; justify-content:center;}
+.home-img-container img {width:200px; height:200px; border-radius:50%; object-fit:cover; position:relative; z-index:2; animation:fadeIn 2s ease-in-out;}
+
+/* Professional animated oval border */
+/* PROFILE IMAGE CONTAINER */
+/* --------- PROFILE IMAGE SECTION --------- */
+
+
+/* Neon animated border */
+
+
+/* Floating animation */
+@keyframes rotateBorder { to { transform: rotate(360deg); } }
+@keyframes floatBorder {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(5px,-5px); }
+  50% { transform: translate(-5px,5px); }
+  75% { transform: translate(3px,3px); }
+  100% { transform: translate(0,0); }
+}
+
+/* Sparkles on hover/mousemove */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0ef;
+  opacity: 0.8;
+  box-shadow: 0 0 6px #0ef;
+  pointer-events: none;
+  animation: sparkleAnim 0.6s forwards;
+}
+@keyframes sparkleAnim {
+  0% { opacity:1; transform:scale(1); }
+  50% { opacity:1; transform:scale(1.5) translate(var(--x), var(--y)); }
+  100% { opacity:0; transform:scale(0) translate(var(--x), var(--y)); }
+}
+
+/* Home content styling */
+.home-content { max-width: 600px; }
+.home-content h1 { font-family:'Orbitron',sans-serif; font-size:2.7rem; color:#0ef; margin:12px 0; }
+.home-content h3, .home-content p { margin:12px 0; color:#ddd; font-weight:400; }
+.home-sci { margin-top:20px; }
+.home-sci a { margin:0 10px; font-size:1.6rem; color:#64ffda; transition:0.3s; }
+.home-sci a:hover { color:#0ef; transform:scale(1.3); }
+
+/* ---------- ABOUT ME ---------- */
+.about {display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; width:100%; padding:60px 8%;}
+.hero-text h2 {font-size:2rem; font-weight:700; color:#fff; margin-bottom:12px;}
+.typed-text {font-size:1.1rem; color:#64ffda; border-right:2px solid #0ef; white-space:nowrap; overflow:hidden; width:0; animation:typing 5s steps(40,end) forwards, blink 0.7s infinite;}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+.cards {display:flex; flex-direction:column; gap:18px; align-items:flex-start;}
+.card {width:320px; padding:18px; border-radius:14px; background:rgba(17,34,64,0.6); backdrop-filter:blur(12px); border:1px solid rgba(0,238,255,0.4); box-shadow:0 0 12px rgba(0,238,255,0.2); transition:0.3s; cursor:pointer;}
+.card:hover {transform:translateY(-6px) scale(1.02); box-shadow:0 0 18px rgba(0,238,255,0.6);}
+.card h3 {font-family:'Orbitron',sans-serif; font-size:1.2rem; color:#0ef; margin-bottom:8px;}
+.card p {font-size:0.95rem; color:#ddd; line-height:1.5;}
+
+/* ---------- SKILLS ---------- */
+.skills {width:100%; padding:60px 8%; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;}
+.skill-box {background:rgba(17,34,64,0.6); backdrop-filter:blur(12px); border:1px solid rgba(0,238,255,0.4); padding:20px; border-radius:14px; text-align:center; transition:0.3s;}
+.skill-box:hover {transform:scale(1.03); box-shadow:0 0 18px rgba(0,238,255,0.6);}
+.skill-box h3 {font-family:'Orbitron',sans-serif; color:#0ef; margin-bottom:12px;}
+.skill-icons {display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:10px;}
+.skill-icons i, .skill-icons span {font-size:1.3rem; padding:8px 12px; border-radius:6px; color:#fff; background:rgba(0,238,255,0.2); display:flex; align-items:center; justify-content:center; transition:0.3s;}
+.skill-icons i:hover, .skill-icons span:hover {background:rgba(0,238,255,0.5); transform:scale(1.2);}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){.about{grid-template-columns:1fr;text-align:center;}.cards{align-items:center;}.home{flex-direction:column;}.home-img-container{margin-bottom:20px;}}
+</style>
+</head>
+
+<body>
+<!-- HEADER -->
+<header class="header">
+  <a href="#" class="logo">Portfolio</a>
+  <nav class="navbar">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="#projects">Projects</a>
+  </nav>
+</header>
+
+<!-- HOME SECTION -->
+<section class="home">
+  <div class="home-img-container">
+    <div style="position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+     
+      
+        <!-- Profile image centered inside the circle -->
+<img src="protfolio-removebg-preview.png" alt="Prince Picture"
+     style="
+        width: 260px;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+
+        /* soft clean glow on the border only */
+        border: 2px solid rgba(0, 255, 255, 0.4);
+        box-shadow: 
+            0 0 8px rgba(0, 255, 255, 0.4); /* no spread = no sun circle */
+
+        background: transparent;
+
+        display: block;
+        margin-top: 20px;
+     ">
+
+
+      </div>
+
+      <!-- Hidden placeholder for existing JS that expects this element (keeps layout/behavior intact) -->
+      <div class="sparkles" style="display:none;"></div>
+    </div>
+  </div>
+  <div class="home-content">
+    <h3>Hello, it's me</h3>
+    <h1>Prince Parajuli!! 🌛</h1>
+    <h3>And I'm a <span class="text"></span></h3>
+    <p>Full-stack web developer specializing in Django & React, passionate about dynamic, user-focused web apps and data-driven solutions.</p>
+    <div class="home-sci">
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT ME SECTION -->
+<section class="about" id="about">
+  <div class="hero-text">
+    <h2>Hello, I'm a Civil Engineer + Coder 🚀</h2>
+    <p class="typed-text">I chose Civil over Computer... but coding is still my passion!</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <h3>Education</h3>
+      <p>Bachelor in Civil Engineering<br>Self-taught Coder 💻</p>
+    </div>
+    <div class="card">
+      <h3>Address</h3>
+      <p>Kathmandu, Nepal 🇳🇵</p>
+    </div>
+    <div class="card">
+      <h3>Why Civil + Coding?</h3>
+      <p>Civil builds the world 🌍, Code builds the future 🚀. Integrating AI & smart solutions for construction & design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section class="skills" id="skills">
+  <div class="skill-box">
+    <h3>Frontend Tech</h3>
+    <div class="skill-icons">
+      <i class="fab fa-html5" title="HTML"></i>
+      <i class="fab fa-css3-alt" title="CSS"></i>
+      <i class="fab fa-js-square" title="JavaScript"></i>
+      <i class="fab fa-react" title="React"></i>
+      <i class="fab fa-bootstrap" title="Bootstrap"></i>
+      <span>Tailwind</span>
+      <i class="fab fa-figma" title="Figma"></i>
+      <span>Canva</span>
+      <span>Illustrator</span>
+    </div>
+  </div>
+  <div class="skill-box">
+    <h3>Backend & Hosting</h3>
+    <div class="skill-icons">
+      <span>MERN</span>
+      <span>Django</span>
+      <span>Flask</span>
+      <span>RESTful API</span>
+      
+      <span>VS Code</span>
+      <span>Vercel</span>
+      <span>Netlify</span>
+      <span>Django Live Host</span>
+      <span>Firebase</span>
+    </div>
+  </div>
+  <div class="skill-box">
+    <h3>Languages & Data Science</h3>
+    <div class="skill-icons">
+      <span>Python</span>
+      <span>C</span>
+      <span>JS</span>
+      <span>Pandas</span>
+      <span>NumPy</span>
+      <span>Matplotlib</span>
+      <span>Scikit-learn</span>
+    </div>
+  </div>
+  
+</section>
+
+<!-- CONTACT ME SECTION -->
+<section class="contact" id="contact" style="padding:60px 8%; text-align:center;">
+  <h2 style="font-family:'Orbitron',sans-serif; color:#0ef; font-size:2rem; margin-bottom:30px;">Contact Me</h2>
+  <p style="color:#ddd; max-width:600px; margin:0 auto 40px;">Have a project or just want to say hi? Send me a message!</p>
+
+  <form id="contactForm" action="https://formspree.io/f/your_form_id" method="POST" style="max-width:600px; margin:0 auto; display:flex; flex-direction:column; gap:15px;">
+    <input type="text" name="name" placeholder="Your Name" required class="contact-input">
+    <input type="email" name="email" placeholder="Your Email" required class="contact-input">
+    <textarea name="message" placeholder="Your Message" rows="5" required class="contact-input"></textarea>
+    <button type="submit" id="submitBtn">Send Message</button>
+  </form>
+</section>
+
+<style>
+/* Input & Textarea */
+.contact-input {
+  padding:12px 15px;
+  border-radius:8px;
+  border:2px solid rgba(0,238,255,0.4);
+  background:rgba(17,34,64,0.6);
+  color:#fff;
+  font-size:1rem;
+  transition:0.4s;
+}
+.contact-input:focus {
+  border-color:#0ef;
+  box-shadow:0 0 12px #0ef;
+  outline:none;
+}
+
+/* Submit Button */
+#submitBtn {
+  padding:12px 20px;
+  border-radius:8px;
+  border:none;
+  background:#0ef;
+  color:#0a192f;
+  font-weight:600;
+  font-size:1rem;
+  cursor:pointer;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+#submitBtn:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 18px #0ef, 0 0 28px #0ef inset;
+}
+
+/* Sparkle effect */
+.sparkle {
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  box-shadow:0 0 6px #0ef;
+  animation:sparkleAnim 0.6s linear forwards;
+}
+@keyframes sparkleAnim {
+  0% {opacity:1; transform:translate(0,0) scale(1);}
+  50% {opacity:1; transform:translate(var(--x), var(--y)) scale(1.5);}
+  100% {opacity:0; transform:translate(var(--x), var(--y)) scale(0);}
+}
+</style>
+
+<script>
+// Sparkle effect on button hover
+const btn = document.getElementById('submitBtn');
+btn.addEventListener('mouseenter', (e)=>{
+  for(let i=0;i<8;i++){
+    let sparkle = document.createElement('span');
+    sparkle.className='sparkle';
+    sparkle.style.left = (e.offsetX)+'px';
+    sparkle.style.top = (e.offsetY)+'px';
+    sparkle.style.setProperty('--x', (Math.random()*100-50)+'px');
+    sparkle.style.setProperty('--y', (Math.random()*100-50)+'px');
+    btn.appendChild(sparkle);
+    setTimeout(()=>{sparkle.remove();},600);
+  }
+});
+// SPARKLE EFFECT ON MOUSE MOVE
+const container = document.querySelector('.home-img-container');
+container.addEventListener('mousemove', e => {
+  const sparkle = document.createElement('span');
+  sparkle.className = 'sparkle';
+  sparkle.style.left = e.offsetX + 'px';
+  sparkle.style.top = e.offsetY + 'px';
+  sparkle.style.setProperty('--x', (Math.random()*60-30)+'px');
+  sparkle.style.setProperty('--y', (Math.random()*60-30)+'px');
+  container.querySelector('.sparkles').appendChild(sparkle);
+  setTimeout(()=> sparkle.remove(), 600);
+});
+
+</script>
+
+
+
+<!-- Typed.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+<script>
+var typed = new Typed('.text', {
+  strings: ["Full-Stack Developer","Django & React Enthusiast","Data Science Explorer"],
+  typeSpeed:60,
+  backSpeed:50,
+  loop:true
+});
+</script>
+
+</body>
+</html>
